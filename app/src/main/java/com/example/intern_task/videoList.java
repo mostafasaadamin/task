@@ -68,8 +68,7 @@ public class videoList extends AppCompatActivity {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (!recyclerView.canScrollVertically(1) && newState==RecyclerView.SCROLL_STATE_IDLE) {
                     progressBar.setVisibility(View.VISIBLE);
-                    if (!isLoading) {
-                        isLoading=true;
+
                         itemViewModel.get_next_Data(id, token);
                         itemViewModel.next_movies_videos.observe(videoList.this, new Observer<Videos>() {
                             @Override
@@ -88,7 +87,7 @@ public class videoList extends AppCompatActivity {
                                 }
                             }
                         });
-                    }
+
                 }
             }
 
